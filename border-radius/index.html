@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 30px auto;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 30px;
+            border: 3px solid black;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="box"></div>
+    <div class="range-container">
+        <div class="ranges">
+            <label>
+                <span>TopLeft</span> <input type="range" value="0" data-angle="TopLeft">
+            </label>
+        </div>
+        <div class="ranges">
+            <label>
+                <span>TopRight</span> <input type="range" value="0" data-angle="TopRight">
+            </label>
+        </div>
+        <div class="ranges">
+            <label>
+                <span>BottomLeft</span> <input type="range" value="0" data-angle="BottomLeft">
+            </label>
+
+        </div>
+        <div class="ranges">
+            <label>
+                <span>BottomRight</span> <input type="range" value="0" data-angle="BottomRight">
+
+            </label>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let ranges = document.querySelectorAll('input[type = "range"]');
+    for (let i = 0; i < ranges.length; i++) {
+        ranges[i].addEventListener("input",round);
+    }
+   function round() {
+       let attribute = this.getAttribute("data-angle");
+       let value = this.value;
+        let box = document.querySelector(".box");
+        box.style["border"+attribute +"Radius"] = value + "%";
+   }
+</script>
+</body>
+</html>
